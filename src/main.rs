@@ -26,7 +26,7 @@ fn encode(payload: &Payload) -> Result<Vec<u8>, Error> {
 fn decode(mut bytes: &[u8]) -> Result<Payload, Error> {
     let payload = Payload {
         kind: bytes.read_u8()?,
-        value: bytes.read_u16::<BigEndian>()?,
+        value: bytes.read_u16::<LittleEndian>()?,
     };
     Ok(payload)
 }
